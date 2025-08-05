@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graffiti Report Tool</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Graffiti Report Tool</h1>
+<div id="auth-section">
+  <input type="email" id="auth-email" placeholder="Email" required />
+  <input type="password" id="auth-password" placeholder="Password" required />
+  <button id="sign-up-btn">Sign Up</button>
+  <button id="sign-in-btn">Log In</button>
+  <button id="sign-out-btn" style="display:none;">Log Out</button>
+  <p id="user-info"></p>
+</div>
+
+
+  <form id="report-form">
+    <input type="text" id="location" placeholder="Enter location" required />
+    <textarea id="description" placeholder="Describe the graffiti" required></textarea>
+    <input type="file" id="image" accept="image/*" />
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <h2>Submitted Reports</h2>
+  <div id="reports-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

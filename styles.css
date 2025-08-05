@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+input, textarea, button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.report-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.report-card img {
+  max-width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
