@@ -26,7 +26,6 @@ document.getElementById('sign-out-btn').addEventListener('click', async () => {
   location.reload();
 });
 
-// Load current user
 async function loadUser() {
   const { data: { user } } = await supabase.auth.getUser();
   if (user) {
@@ -39,9 +38,7 @@ async function loadUser() {
     loadReports();
   }
 }
-loadUser();
 
-// Form submission
 document.getElementById('report-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -87,25 +84,30 @@ document.getElementById('report-form').addEventListener('submit', async (e) => {
   }
 });
 
-// Load and display reports
 async function loadReports() {
-  const { data: reports, error } = await supabase
+  const { data, error } = await supabase
     .from('graffiti_reports')
     .select('*')
     .order('created_at', { ascending: false });
 
-  const container = document.getElementById('reports-container');
-  container.innerHTML = '';
+  const reportsContainer = document.getElementById('reports-container');
+  reportsContainer.innerHTML = '';
 
-  reports.forEach(report => {
-    const div = document.createElement('div');
-    div.className = 'report-card';
-    div.innerHTML = `
-      <p><strong>Location:</strong> ${report.location}</p>
+  if (error) {
+    console.error('Failed to load reports:', error);
+    return;
+  }
+
+  data.forEach(report => {
+    const card = document.createElement('div');
+    card.classList.add('report-card');
+    card.innerHTML = `
+      <h3>${report.location}</h3>
       <p>${report.description}</p>
-      ${report.image_url ? `<img src="${report.image_url}" width="200"/>` : ''}
-      <p><em>Submitted by ${report.user_email}</em></p>
+      ${report.image_url ? `<img src="${report.image_url}" alt="Graffiti Image">` : ''}
     `;
-    container.appendChild(div);
+    reportsContainer.appendChild(card);
   });
 }
+
+window.addEventListener('DOMContentLoaded', loadUser);
