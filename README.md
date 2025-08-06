@@ -1,7 +1,7 @@
 
 # Graffiti Report Tool
 
-Graffiti Report Tool is a web application designed to help communities and authorities efficiently report, track, and manage graffiti incidents. With a user-friendly interface, interactive map, and streamlined workflow, this tool empowers users to make their neighborhoods cleaner and safer.
+Graffiti Report Tool is a web application designed to help communities and authorities efficiently report, track, and manage graffiti incidents. With a user-friendly interface and streamlined workflow, this tool empowers users to make their neighborhoods cleaner and safer.
 
 ## Table of Contents
 
